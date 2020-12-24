@@ -1,0 +1,79 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ULTRAMOD_Updater.win_Main"
+        WindowTitleBrush="Blue" Title="ULTRAMOD UPDATER" Height="293" Width="784" Icon="Resources/UM_Logo.png" ShowIconOnTitleBar="True" ResizeMode="NoResize"
+        BorderThickness="0" 
+        GlowBrush="Black"
+        WindowTransitionsEnabled="False"
+        WindowStartupLocation="CenterScreen" Loaded="win_Main_Load" Closing="MetroWindow_Closing"
+    >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="338*"/>
+            <ColumnDefinition Width="217*"/>
+            <ColumnDefinition Width="42*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lbl_status" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,112,0,0" Grid.ColumnSpan="3" Width="594" d:IsLocked="True"/>
+        <Label x:Name="lbl_data" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,158,0,0" Grid.ColumnSpan="3" Width="594" d:IsLocked="True"/>
+        <Label x:Name="lbl_status_pos2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,205,0,0" Grid.ColumnSpan="2" Width="349" Grid.Column="1" d:IsLocked="True"/>
+        <Label x:Name="lbl_Body_Message" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="10,84,0,0" Grid.ColumnSpan="3" Height="135" Width="587" FontSize="18" FontWeight="Bold" d:IsLocked="True"/>
+        <Label x:Name="lbl_Message" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0" Grid.ColumnSpan="4" Height="140" Width="758" FontSize="18" FontWeight="Bold" d:IsLocked="True"/>
+        <Label x:Name="lbl_version" Content="ULTRAMOD Updater" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,244,0,-3" Width="181" FontSize="10" d:IsLocked="True"/>
+        <Controls:MetroProgressBar x:Name="progressbar_download"
+                                       Margin="11,189,11,68"
+                                       Maximum="100"
+                                       Minimum="0"
+                                       Value="{Binding Value, ElementName=horizSlider}" Grid.ColumnSpan="4" Height="7" RenderTransformOrigin="0.5,0.5" Foreground="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" d:IsLocked="True" >
+            <Controls:MetroProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Controls:MetroProgressBar.RenderTransform>
+        </Controls:MetroProgressBar>
+        <Controls:MetroProgressBar x:Name="progressbar_total"
+        	Margin="11,143,11,114"
+        	Maximum="100"
+        	Minimum="0"
+        	Value="{Binding Value, ElementName=horizSlider}" Grid.ColumnSpan="4" Height="7" RenderTransformOrigin="0.5,0.5" Foreground="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" d:IsLocked="True" >
+            <Controls:MetroProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Controls:MetroProgressBar.RenderTransform>
+        </Controls:MetroProgressBar>
+        <Controls:MetroProgressBar x:Name="progressbar_Loading_Efftect"
+                                       Margin="10,143,10,115"
+                                       Foreground="{DynamicResource AccentColorBrush}"
+                                       IsIndeterminate="True"
+                                       Maximum="100"
+                                       Minimum="0"
+                                       Value="{Binding Value, ElementName=horizSlider}" Grid.ColumnSpan="4" Height="4" d:IsLocked="True" />
+
+        <Image x:Name="img_banned" HorizontalAlignment="Left" Height="167" VerticalAlignment="Top" Width="171" Margin="20,70,0,0" Source="Resources/img_banned.png" Grid.ColumnSpan="2" d:IsLocked="True"/>
+        <Image x:Name="img_update" HorizontalAlignment="Left" Height="171" VerticalAlignment="Top" Width="177" Margin="16,68,0,0" Source="Resources/img_update.png" Grid.ColumnSpan="2" d:IsLocked="True"/>
+        <Image x:Name="img_success" HorizontalAlignment="Left" Height="171" VerticalAlignment="Top" Width="177" Margin="16,68,0,0" Source="Resources/img_success.png" Grid.ColumnSpan="2" d:IsLocked="True"/>
+        <Image x:Name="img_conf" HorizontalAlignment="Left" Height="171" VerticalAlignment="Top" Width="177" Margin="16,68,0,0" Source="Resources/img_config.png" Grid.ColumnSpan="2" d:IsLocked="True"/>
+        <Image x:Name="img_error" HorizontalAlignment="Left" Height="171" VerticalAlignment="Top" Width="177" Margin="16,68,0,0" Source="Resources/img_error.png" Grid.ColumnSpan="2" d:IsLocked="True"/>
+        <Image x:Name="img_timeout" HorizontalAlignment="Left" Height="147" VerticalAlignment="Top" Width="147" Margin="34,81,0,0" Source="Resources/img_timeout.jpg" d:IsLocked="True"/>
+        <StackPanel x:Name="StackPanel_Body_Container" HorizontalAlignment="Left" Height="156" VerticalAlignment="Top" Width="577" Grid.Column="1" Margin="10,70,0,0" Grid.ColumnSpan="3"/>
+        <Button x:Name="btn_submit" Content="submit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Grid.Column="2" Margin="140,226,0,0" Height="28" Grid.ColumnSpan="2" Click="btn_submit_Click" d:IsLocked="True"/>
+        <Button x:Name="btn_clear" Content="Restart Pickup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Grid.Column="2" Margin="26,226,0,0" Height="28" Click="btn_clear_Click" d:IsLocked="True"/>
+        <Button x:Name="btn_update_link" Content="DOWNLOAD LINK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Grid.Column="2" Margin="140,226,0,0" Height="28" Click="btn_update_link_Click" Grid.ColumnSpan="2" d:IsLocked="True"/>
+        <Button x:Name="btn_refresh" Content="REFRESH" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Grid.Column="2" Margin="140,226,0,0" Height="28" Click="btn_refresh_Click" Grid.ColumnSpan="2" d:IsLocked="True"/>
+        <Button x:Name="btn_cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Grid.Column="2" Margin="140,226,0,0" Height="28" Grid.ColumnSpan="2" Click="btn_cancel_Click" d:IsLocked="True"/>
+        <Button x:Name="btn_continue" Content="CONTINUE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Grid.Column="2" Margin="140,226,0,0" Height="28" Grid.ColumnSpan="2" Click="btn_continue_Click" d:IsLocked="True"/>
+        <Button x:Name="btn_continue_update" Content="CONTINUE WITHOUT UPDATING" HorizontalAlignment="Left" VerticalAlignment="Top" Width="169" Grid.Column="1" Margin="304,226,0,0" Height="28" Click="btn_continue_update_Click" Grid.ColumnSpan="2" d:IsLocked="True"/>
+        <Button x:Name="btn_open_logfile" Content="OPEN LOGFILE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Grid.Column="2" Margin="26,226,0,0" Height="28" Click="btn_open_logfile_Click" d:IsLocked="True"/>
+        <Image HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="784" Source="Resources/win_Main_Header.jpg" Grid.ColumnSpan="4" Stretch="Fill" d:IsLocked="True"/>
+    </Grid>
+</Controls:MetroWindow>
